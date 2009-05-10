@@ -1,0 +1,737 @@
+
+
+Processing ClientsController#index (for 127.0.0.1 at 2009-03-24 18:18:06) [GET]
+  [4;36;1mClient Load (2.9ms)[0m   [0;1mSELECT * FROM "clients" [0m
+Rendering template within layouts/clients
+Rendering clients/index
+Completed in 127ms (View: 47, DB: 3) | 200 OK [http://0.0.0.0/]
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2009-03-24 18:18:19) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mClient Load (1.9ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+Rendering template within layouts/clients
+Rendering clients/show
+Completed in 115ms (View: 53, DB: 2) | 200 OK [http://0.0.0.0/clients/2]
+
+
+Processing BrandsController#index (for 127.0.0.1 at 2009-03-24 18:18:21) [GET]
+  Parameters: {"client_id"=>"2"}
+  [4;36;1mClient Load (1.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+Rendering template within layouts/brands
+Rendering brands/index
+  [4;35;1mBrand Load (2.1ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands".client_id = 2) [0m
+Completed in 148ms (View: 55, DB: 4) | 200 OK [http://0.0.0.0/clients/2/brands]
+
+
+Processing BrandsController#show (for 127.0.0.1 at 2009-03-24 18:18:24) [GET]
+  Parameters: {"id"=>"1", "client_id"=>"2"}
+  [4;36;1mClient Load (1.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;35;1mBrand Load (1.5ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+Rendering template within layouts/brands
+Rendering brands/show
+Completed in 267ms (View: 38, DB: 3) | 200 OK [http://0.0.0.0/clients/2/brands/1]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-03-24 18:18:26) [GET]
+  Parameters: {"client_id"=>"2", "brand_id"=>"1"}
+  [4;36;1mClient Load (1.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;35;1mBrand Load (1.5ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;36;1mProduct Load (1.6ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products".brand_id = 1) [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 190ms (View: 57, DB: 5) | 200 OK [http://0.0.0.0/clients/2/brands/1/products]
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2009-03-24 18:18:30) [GET]
+  Parameters: {"id"=>"1", "client_id"=>"2", "brand_id"=>"1"}
+  [4;35;1mClient Load (1.5ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;36;1mBrand Load (1.5ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;35;1mProduct Load (1.5ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1 AND ("products".brand_id = 1)) [0m
+Rendering template within layouts/products
+Rendering products/edit
+Rendered products/_form (11.5ms)
+Completed in 194ms (View: 59, DB: 5) | 200 OK [http://0.0.0.0/clients/2/brands/1/products/1/edit]
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2009-03-24 18:19:12) [GET]
+  Parameters: {"id"=>"1", "client_id"=>"2", "brand_id"=>"1"}
+  [4;36;1mClient Load (1.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;35;1mBrand Load (1.4ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;36;1mProduct Load (1.5ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1 AND ("products".brand_id = 1)) [0m
+Rendering template within layouts/products
+Rendering products/edit
+
+
+ActionView::TemplateError (undefined local variable or method `f' for #<ActionView::Base:0x22d4810>) on line #6 of app/views/products/_form.html.erb:
+3:   <%= yield %>
+4: 
+5: <p>
+6:   <%= f.label :name %><br />
+7:   <%= f.text_field :name %>
+8: </p>
+9: <p>
+
+    app/views/products/_form.html.erb:6
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:20:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:19:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:45:in `render_partial'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/partials.rb:152:in `render_partial'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:258:in `render'
+    app/views/products/edit.html.erb:4
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_helper.rb:313:in `fields_for'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_helper.rb:253:in `form_for'
+    app/views/products/edit.html.erb:3
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1248:in `default_render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285
+
+Rendered /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (312.4ms)
+Rendered /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (2.9ms)
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2009-03-24 18:19:14) [GET]
+  Parameters: {"id"=>"1", "client_id"=>"2", "brand_id"=>"1"}
+  [4;35;1mClient Load (1.5ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;36;1mBrand Load (1.4ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;35;1mProduct Load (1.6ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1 AND ("products".brand_id = 1)) [0m
+Rendering template within layouts/products
+Rendering products/edit
+
+
+ActionView::TemplateError (undefined local variable or method `f' for #<ActionView::Base:0x24bb2c8>) on line #6 of app/views/products/_form.html.erb:
+3:   <%= yield %>
+4: 
+5: <p>
+6:   <%= f.label :name %><br />
+7:   <%= f.text_field :name %>
+8: </p>
+9: <p>
+
+    app/views/products/_form.html.erb:6
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:20:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:19:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:45:in `render_partial'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/partials.rb:152:in `render_partial'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:258:in `render'
+    app/views/products/edit.html.erb:4
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_helper.rb:313:in `fields_for'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_helper.rb:253:in `form_for'
+    app/views/products/edit.html.erb:3
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1248:in `default_render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285
+
+Rendered /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (167.6ms)
+Rendered /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (2.6ms)
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2009-03-24 18:19:38) [GET]
+  Parameters: {"id"=>"1", "client_id"=>"2", "brand_id"=>"1"}
+  [4;36;1mClient Load (1.6ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;35;1mBrand Load (1.5ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;36;1mProduct Load (1.6ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1 AND ("products".brand_id = 1)) [0m
+Rendering template within layouts/products
+Rendering products/edit
+Rendered products/_form (11.3ms)
+Completed in 195ms (View: 59, DB: 5) | 200 OK [http://0.0.0.0/clients/2/brands/1/products/1/edit]
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2009-03-24 18:20:01) [GET]
+  Parameters: {"id"=>"1", "client_id"=>"2", "brand_id"=>"1"}
+  [4;35;1mClient Load (1.5ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;36;1mBrand Load (1.4ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;35;1mProduct Load (1.5ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1 AND ("products".brand_id = 1)) [0m
+Rendering template within layouts/products
+Rendering products/edit
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.error_messages) on line #1 of app/views/products/_form.html.erb:
+1: <%= f.error_messages %>
+2: 
+3:   <%= yield %>
+4: 
+
+    app/views/products/_form.html.erb:1
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:20:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:19:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:45:in `render_partial'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/partials.rb:152:in `render_partial'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:258:in `render'
+    app/views/products/edit.html.erb:4
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_helper.rb:313:in `fields_for'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_helper.rb:253:in `form_for'
+    app/views/products/edit.html.erb:3
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1248:in `default_render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285
+
+Rendered /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (163.0ms)
+Rendered /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (2.6ms)
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2009-03-24 18:20:08) [GET]
+  Parameters: {"id"=>"1", "client_id"=>"2", "brand_id"=>"1"}
+  [4;36;1mClient Load (1.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;35;1mBrand Load (1.4ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;36;1mProduct Load (1.6ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1 AND ("products".brand_id = 1)) [0m
+Rendering template within layouts/products
+Rendering products/edit
+Rendered products/_form (11.4ms)
+Completed in 196ms (View: 60, DB: 5) | 200 OK [http://0.0.0.0/clients/2/brands/1/products/1/edit]
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2009-03-24 18:20:10) [GET]
+  Parameters: {"id"=>"1", "client_id"=>"2", "brand_id"=>"1"}
+  [4;35;1mClient Load (1.5ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;36;1mBrand Load (1.5ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;35;1mProduct Load (1.6ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1 AND ("products".brand_id = 1)) [0m
+Rendering template within layouts/products
+Rendering products/edit
+Rendered products/_form (11.8ms)
+Completed in 197ms (View: 59, DB: 5) | 200 OK [http://0.0.0.0/clients/2/brands/1/products/1/edit]
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2009-03-24 18:20:10) [GET]
+  Parameters: {"id"=>"1", "client_id"=>"2", "brand_id"=>"1"}
+  [4;36;1mClient Load (1.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;35;1mBrand Load (1.4ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;36;1mProduct Load (1.5ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1 AND ("products".brand_id = 1)) [0m
+Rendering template within layouts/products
+Rendering products/edit
+Rendered products/_form (11.1ms)
+Completed in 192ms (View: 57, DB: 5) | 200 OK [http://0.0.0.0/clients/2/brands/1/products/1/edit]
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2009-03-24 18:23:06) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ff25d907069cf311e7045950add3168bf10f9bee", "id"=>"1", "client_id"=>"2", "product"=>{"name"=>"product brand x", "description"=>"brand x product description", "product_code"=>"02323232"}, "brand_id"=>"1"}
+  [4;35;1mClient Load (1.6ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;36;1mBrand Load (1.5ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;35;1mProduct Load (1.6ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1 AND ("products".brand_id = 1)) [0m
+  [4;36;1mProduct Exists (0.5ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."product_code" = '02323232' AND "products".id <> 1) LIMIT 1[0m
+  [4;35;1mProduct Exists (0.4ms)[0m   [0mSELECT "products".id FROM "products" WHERE ("products"."name" = 'product brand x' AND "products".brand_id = 1 AND "products".id <> 1) LIMIT 1[0m
+Redirected to #<Client:0x22da544>#<Brand:0x22c5b44>#<Product:0x22ac0cc>
+Completed in 180ms (DB: 6) | 302 Found [http://0.0.0.0/clients/2/brands/1/products/1]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2009-03-24 18:23:06) [GET]
+  Parameters: {"id"=>"1", "client_id"=>"2", "brand_id"=>"1"}
+  [4;36;1mClient Load (1.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;35;1mBrand Load (1.4ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1 AND ("products".brand_id = 1)) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 188ms (View: 48, DB: 5) | 200 OK [http://0.0.0.0/clients/2/brands/1/products/1]
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2009-03-24 18:23:09) [GET]
+  Parameters: {"id"=>"1", "client_id"=>"2", "brand_id"=>"1"}
+  [4;35;1mClient Load (1.5ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;36;1mBrand Load (1.5ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;35;1mProduct Load (2.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1 AND ("products".brand_id = 1)) [0m
+Rendering template within layouts/products
+Rendering products/edit
+Rendered products/_form (11.5ms)
+Completed in 205ms (View: 66, DB: 5) | 200 OK [http://0.0.0.0/clients/2/brands/1/products/1/edit]
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2009-03-24 18:23:15) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ff25d907069cf311e7045950add3168bf10f9bee", "id"=>"1", "client_id"=>"2", "product"=>{"name"=>"product brand x", "description"=>"brand x product descriptions", "product_code"=>"02323232"}, "brand_id"=>"1"}
+  [4;36;1mClient Load (1.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;35;1mBrand Load (1.4ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;36;1mProduct Load (1.7ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1 AND ("products".brand_id = 1)) [0m
+  [4;35;1mProduct Exists (0.5ms)[0m   [0mSELECT "products".id FROM "products" WHERE ("products"."product_code" = '02323232' AND "products".id <> 1) LIMIT 1[0m
+  [4;36;1mProduct Exists (0.5ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."name" = 'product brand x' AND "products".brand_id = 1 AND "products".id <> 1) LIMIT 1[0m
+  [4;35;1mProduct Update (1.5ms)[0m   [0mUPDATE "products" SET "updated_at" = '2009-03-24 18:23:15', "description" = 'brand x product descriptions' WHERE "id" = 1[0m
+Redirected to #<Client:0x20c82d8>#<Brand:0x20bc168>#<Product:0x20ad410>
+Completed in 184ms (DB: 7) | 302 Found [http://0.0.0.0/clients/2/brands/1/products/1]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2009-03-24 18:23:16) [GET]
+  Parameters: {"id"=>"1", "client_id"=>"2", "brand_id"=>"1"}
+  [4;36;1mClient Load (1.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;35;1mBrand Load (1.5ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;36;1mProduct Load (1.6ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1 AND ("products".brand_id = 1)) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 188ms (View: 47, DB: 5) | 200 OK [http://0.0.0.0/clients/2/brands/1/products/1]
+
+
+Processing ClientsController#index (for 127.0.0.1 at 2009-03-25 17:50:02) [GET]
+  [4;36;1mClient Load (1.3ms)[0m   [0;1mSELECT * FROM "clients" [0m
+Rendering template within layouts/clients
+Rendering clients/index
+Completed in 28ms (View: 16, DB: 1) | 200 OK [http://0.0.0.0/]
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2009-03-25 17:50:07) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+Rendering template within layouts/clients
+Rendering clients/show
+Completed in 17ms (View: 8, DB: 0) | 200 OK [http://0.0.0.0/clients/2]
+
+
+Processing BrandsController#index (for 127.0.0.1 at 2009-03-25 17:50:13) [GET]
+  Parameters: {"client_id"=>"2"}
+  [4;36;1mClient Load (0.7ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+Rendering template within layouts/brands
+Rendering brands/index
+  [4;35;1mBrand Load (0.7ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands".client_id = 2) [0m
+Completed in 37ms (View: 16, DB: 1) | 200 OK [http://0.0.0.0/clients/2/brands]
+
+
+Processing BrandsController#show (for 127.0.0.1 at 2009-03-25 17:50:19) [GET]
+  Parameters: {"id"=>"2", "client_id"=>"2"}
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;35;1mBrand Load (0.5ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."id" = 2 AND ("brands".client_id = 2)) [0m
+Rendering template within layouts/brands
+Rendering brands/show
+Completed in 34ms (View: 12, DB: 1) | 200 OK [http://0.0.0.0/clients/2/brands/2]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-03-25 17:50:20) [GET]
+  Parameters: {"client_id"=>"2", "brand_id"=>"2"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;35;1mBrand Load (0.3ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."id" = 2 AND ("brands".client_id = 2)) [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products".brand_id = 2) [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 30ms (View: 7, DB: 1) | 200 OK [http://0.0.0.0/clients/2/brands/2/products]
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2009-03-25 17:50:31) [GET]
+  Parameters: {"client_id"=>"2", "brand_id"=>"2"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;36;1mBrand Load (0.4ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands"."id" = 2 AND ("brands".client_id = 2)) [0m
+Rendering template within layouts/products
+Rendering products/new
+Rendered products/_form (1.2ms)
+Completed in 35ms (View: 11, DB: 1) | 200 OK [http://0.0.0.0/clients/2/brands/2/products/new]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2009-03-25 17:50:42) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"91ad6b7af02ba9c1e0f8aab87e01857fd0c9ae69", "client_id"=>"2", "product"=>{"name"=>"my product", "description"=>"desc", "product_code"=>"000"}, "brand_id"=>"2"}
+  [4;35;1mClient Load (0.5ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;36;1mBrand Load (0.5ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands"."id" = 2 AND ("brands".client_id = 2)) [0m
+  [4;35;1mProduct Exists (0.3ms)[0m   [0mSELECT "products".id FROM "products" WHERE ("products"."product_code" = '000') LIMIT 1[0m
+  [4;36;1mProduct Exists (0.2ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."name" = 'my product' AND "products".brand_id = 2) LIMIT 1[0m
+Rendering template within layouts/products
+Rendering products/new
+Rendered products/_form (2.5ms)
+Completed in 63ms (View: 17, DB: 1) | 200 OK [http://0.0.0.0/clients/2/brands/2/products]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2009-03-25 17:50:52) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"91ad6b7af02ba9c1e0f8aab87e01857fd0c9ae69", "client_id"=>"2", "product"=>{"name"=>"my product", "description"=>"description", "product_code"=>"000"}, "brand_id"=>"2"}
+  [4;35;1mClient Load (0.4ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;36;1mBrand Load (0.5ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands"."id" = 2 AND ("brands".client_id = 2)) [0m
+  [4;35;1mProduct Exists (0.2ms)[0m   [0mSELECT "products".id FROM "products" WHERE ("products"."product_code" = '000') LIMIT 1[0m
+  [4;36;1mProduct Exists (0.2ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."name" = 'my product' AND "products".brand_id = 2) LIMIT 1[0m
+  [4;35;1mProduct Create (0.9ms)[0m   [0mINSERT INTO "products" ("name", "created_at", "updated_at", "description", "verified", "product_code", "brand_id") VALUES('my product', '2009-03-25 17:50:52', '2009-03-25 17:50:52', 'description', 'f', '000', 2)[0m
+Redirected to #<Client:0x7f039831f2e8>#<Brand:0x7f03982ef250>#<Product:0x7f03982d0c88>
+Completed in 43ms (DB: 2) | 302 Found [http://0.0.0.0/clients/2/brands/2/products]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2009-03-25 17:50:52) [GET]
+  Parameters: {"id"=>"2", "client_id"=>"2", "brand_id"=>"2"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;35;1mBrand Load (0.4ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."id" = 2 AND ("brands".client_id = 2)) [0m
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2 AND ("products".brand_id = 2)) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 118ms (View: 11, DB: 1) | 200 OK [http://0.0.0.0/clients/2/brands/2/products/2]
+
+
+Processing BrandsController#show (for 127.0.0.1 at 2009-03-25 17:51:00) [GET]
+  Parameters: {"id"=>"2", "client_id"=>"2"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;36;1mBrand Load (0.3ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands"."id" = 2 AND ("brands".client_id = 2)) [0m
+Rendering template within layouts/brands
+Rendering brands/show
+Completed in 26ms (View: 8, DB: 1) | 200 OK [http://0.0.0.0/clients/2/brands/2]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-03-25 17:51:06) [GET]
+  Parameters: {"client_id"=>"2", "brand_id"=>"2"}
+  [4;35;1mClient Load (0.4ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;36;1mBrand Load (0.5ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands"."id" = 2 AND ("brands".client_id = 2)) [0m
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products".brand_id = 2) [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 37ms (View: 11, DB: 1) | 200 OK [http://0.0.0.0/clients/2/brands/2/products]
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2009-03-25 17:51:13) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+Rendering template within layouts/clients
+Rendering clients/show
+Completed in 23ms (View: 10, DB: 0) | 200 OK [http://0.0.0.0/clients/2]
+
+
+Processing BrandsController#index (for 127.0.0.1 at 2009-03-25 17:51:15) [GET]
+  Parameters: {"client_id"=>"2"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+Rendering template within layouts/brands
+Rendering brands/index
+  [4;36;1mBrand Load (0.9ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands".client_id = 2) [0m
+Completed in 112ms (View: 12, DB: 1) | 200 OK [http://0.0.0.0/clients/2/brands]
+
+
+Processing BrandsController#show (for 127.0.0.1 at 2009-03-25 17:51:20) [GET]
+  Parameters: {"id"=>"1", "client_id"=>"2"}
+  [4;35;1mClient Load (0.5ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;36;1mBrand Load (0.6ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+Rendering template within layouts/brands
+Rendering brands/show
+Completed in 36ms (View: 13, DB: 1) | 200 OK [http://0.0.0.0/clients/2/brands/1]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-03-25 17:51:27) [GET]
+  Parameters: {"client_id"=>"2", "brand_id"=>"1"}
+  [4;35;1mClient Load (0.4ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;36;1mBrand Load (0.3ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products".brand_id = 1) [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 36ms (View: 11, DB: 1) | 200 OK [http://0.0.0.0/clients/2/brands/1/products]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-03-25 17:51:40) [GET]
+  Parameters: {"client_id"=>"2", "brand_id"=>"2"}
+  [4;36;1mClient Load (0.6ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;35;1mBrand Load (0.6ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."id" = 2 AND ("brands".client_id = 2)) [0m
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products".brand_id = 2) [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 45ms (View: 13, DB: 2) | 200 OK [http://0.0.0.0/clients/2/brands/2/products]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-03-25 17:51:43) [GET]
+  Parameters: {"client_id"=>"2", "brand_id"=>"1"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+  [4;36;1mBrand Load (0.3ms)[0m   [0;1mSELECT * FROM "brands" WHERE ("brands"."id" = 1 AND ("brands".client_id = 2)) [0m
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products".brand_id = 1) [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 33ms (View: 12, DB: 1) | 200 OK [http://0.0.0.0/clients/2/brands/1/products]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2009-03-25 17:51:46) [GET]
+  Parameters: {"client_id"=>"1", "brand_id"=>"1"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+ActiveRecord::RecordNotFound (Couldn't find Client with ID=1):
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1528:in `find_one'
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1511:in `find_from_ids'
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:590:in `find'
+    /app/controllers/products_controller.rb:91:in `load_client'
+    /home/indiehead/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/callbacks.rb:178:in `send'
+    /home/indiehead/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/callbacks.rb:178:in `evaluate_method'
+    /home/indiehead/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/callbacks.rb:166:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:225:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:629:in `run_before_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:615:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:294:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285
+
+Rendered /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (26.5ms)
+Rendered /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.5ms)
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing BrandsController#index (for 127.0.0.1 at 2009-03-25 17:51:50) [GET]
+  Parameters: {"client_id"=>"1"}
+  [4;35;1mClient Load (0.2ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+ActiveRecord::RecordNotFound (Couldn't find Client with ID=1):
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1528:in `find_one'
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1511:in `find_from_ids'
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:590:in `find'
+    /app/controllers/brands_controller.rb:89:in `load_client'
+    /home/indiehead/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/callbacks.rb:178:in `send'
+    /home/indiehead/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/callbacks.rb:178:in `evaluate_method'
+    /home/indiehead/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/callbacks.rb:166:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:225:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:629:in `run_before_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:615:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:294:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285
+
+Rendered /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (15.5ms)
+Rendered /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.9ms)
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2009-03-25 17:51:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+ActiveRecord::RecordNotFound (Couldn't find Client with ID=1):
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1528:in `find_one'
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1511:in `find_from_ids'
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:590:in `find'
+    /app/controllers/clients_controller.rb:16:in `show'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:294:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /home/indiehead/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285
+
+Rendered /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (22.7ms)
+Rendered /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.0ms)
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ClientsController#index (for 127.0.0.1 at 2009-03-25 17:51:57) [GET]
+  [4;35;1mClient Load (0.8ms)[0m   [0mSELECT * FROM "clients" [0m
+Rendering template within layouts/clients
+Rendering clients/index
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://0.0.0.0/clients/]
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2009-03-25 17:52:00) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 2) [0m
+Rendering template within layouts/clients
+Rendering clients/show
+Completed in 23ms (View: 10, DB: 0) | 200 OK [http://0.0.0.0/clients/2]

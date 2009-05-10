@@ -1,0 +1,245 @@
+OOP
+  class     
+    :defines the abstract characteristics of a thing, 
+      attributes, behaviours
+      blueprint to the nature of something
+      provide modularity & structure in oop
+      self-contained
+
+  object
+    :pattern/exemplar of a dog
+      defines all possible dogs
+      characteristics and behaviours of them
+
+  instance
+    :an instance of a class or object
+      object created at runtime
+      consists of a state and the behaviours it inherits derived from the object
+
+  method
+    :an objects abilities
+      e.g. functions
+      bark()
+      
+  message-passing
+    :process in which one object passes data to another object
+      Lassie sit
+      some languages do double-dispatch or multi-dispatch
+      
+  inheritance
+    :more specialised versions of a class
+      inherit attributes and methods from their parent class
+      building upon them for specific needs
+    :multiple-inheritance is inheritance from more than one ancestor class
+    
+  abstraction
+    :simplifying complex realities by modelling classes appropriate to the problem
+      you don't need to know how they work, simply how to properly interface them
+
+  encapsulation
+    :conceals the functional details of a class from objects that message it
+      reason for this is to prevent clients relying on components inside the 
+      class which may change in the future.  they can use the bark() method without
+      fear of it changing (and you can change use it as a placeholder changing the 
+      logic without fear of incurring changes on your clients).
+    :methods are often specified as public/private/protected exactly for this case.
+      
+  polymorphism
+    :allows you to treat derived class members just like their parent classes
+    :e.g. objects belonging to different data-types can respond to methods calls
+      in their own specific way, so Dog:speak() goes one way, Cat:speak() goes another
+      even though they both inherit their methods from the Animal class
+         
+  decoupling
+    :allows for separation of object interactions from classes & inheritance to 
+       distinct layes of abstraction.
+    :e.g. to polymorphically decouple the encapsulation into common reusable parts
+    
+    
+OOP in Scripting
+  :PHP-5, Ruby, Perl, JavaScript, ActionScript
+
+Design Pattern
+  :generally reusable solution to a commonly occuring problem in software design
+  :it's a description of a template that can be used in many different scenarios
+    * creational
+      .abstract  :provides an interface for creating families or related objects
+      .factory   :define an interface for creating objects but lets you defer creation to it subclasses
+      .singleton :only one instance and provide a global point of access to it
+    * structural
+      .adapter
+      .bridge
+      .composite
+      .decorator
+      .facade
+     * behavioral
+      .iterator
+      .observer
+      .strategy
+      .template method
+
+REST
+  :representational state transfer
+    * resources (referenced by a global identifier)
+    * CRUD
+      :post   - create
+      :get    - read
+      :put    - update / create
+      :delete - delete
+    * /collection/cars    (list/create)
+      /collection/cars/id (show specific record, read/update/delete)
+
+Test-driven Development
+  :RSpec
+    * provides a Domain Specific Language (DSL) with which you can express 
+      executable examples of the expected behaviour of your code.
+
+        describe Account, " when first created" do
+          it "should have a balance of $0" do
+            ...
+          end
+        end
+      
+  :ZenTest
+    # Test and implementation methods generated automatically. 
+      Focus on content, not structure.
+    # Know where to work next.
+    # Get quick feedback on progress.
+    # Runs tests continuously, improved feedback, based on files you've changed
+    # Audits your tests to ensure you have full coverage
+    
+
+  :General
+    * Cycle
+      - add a test
+      - run all tests to see if any fail
+      - write some code
+      - run automated tests and see them succeed
+      - refactor code
+      - repeat
+    * write the tests first (should be written before the functionality, so the 
+      developers think about writing for the tests from the outset rather than
+      an afterthought later)
+    * fail the tests (to make sure they really will catch an error) 
+
+Client-side A-B testing
+  do one process in two ways to determine which is better
+
+AJAX
+  :Prototype (moveme.com, wspgroup.com, dateswithmates.com, packpay.com)
+  :jQuery (moveme.com, red91.com, keepthinking)
+  :MooTools (moveme.com)
+  :DoJo (moveme.com)
+
+LAMP
+  :MySQL 5 (InnoDB, MyISAM)
+  :PHP 5
+  :Ruby 1.8.7
+  :Rails 2.3
+    * templates (scripts)
+    * engines (reusable components to common things)
+    * gems
+  :administration
+    * NGINX
+    * Apache
+    * Passenger
+  :deployment
+    * github, svn, cvs, mercurial
+    * rsync
+    * capistrano
+    * ssh keys    
+  :security
+    * ssh
+    * iptables
+    
+    * Agile background, unit testing, version control (git, svn, sourcesafe and mercurial)
+
+Browser Testing
+  :Google Chrome
+  :Firefox
+  :Safari
+  :Opera
+  :IE 6, 7, 8
+  :Selenium (core)
+
+Ruby 1.9 features
+  :YARV, replaces Matz interpreter MRI for performance
+  :Fibers, little processes that can be run paused and resumed at any time, very little RAM
+  :Named Regexp groups, allowing you to create snippets
+  :Lambda operator, 
+  :RubyGems and RAKE now merged into Ruby 
+  
+
+Agile
+  :continuous testing
+  :pair programming
+  :test driven development
+  :design patterns
+  :domain-driven designs
+  :code refactoring
+  
+Scrum
+  :Daily Scrum
+    * 15 minutes
+    * what done yesterday
+    * planning to do today
+    * any impediments
+  :Sprint Planning Meeting
+    * select work to be done
+    * prepare sprint backlog 
+  :Sprint Review Meeting
+    * review work completed and not completed
+    * present completed work to stakeholders
+    * incomplete work cannot be demonstrated
+  :Sprint Retrospective
+    * reflect on sprint
+    * make continuous process improvement
+    * what went well?, what could be improved?
+  :Product Backlog
+    * all tasks needed for product
+  :Sprint Backlog
+    * tasks assigned for this particular sprint
+  :Burn-Down
+    * publicly displayed chart showing work progress in sprint
+
+Agile - Definition of Done    
+  # Code produced (all 'to do' items in code completed)
+  # Code commented, checked in and run against current version in source control
+  # Peer reviewed (or produced with pair programming) and meeting development standards
+  # Builds without errors
+  # Unit tests written and passing
+  # Deployed to system test environment and passed system tests
+  # Passed UAT (User Acceptance Testing) and signed off as meeting requirements
+  # Any build/deployment/configuration changes implemented/documented/communicated
+  # Relevant documentation/diagrams produced and/or updated
+  # Remaining hours for task set to zero and task closed
+  
+Agile Manifesto
+  * Individuals and interactions ..over processes and tools
+  * Working software ..over comprehensive documentation
+  * Customer collaboration ..over contract negotiation
+  * Responding to change ..over following a plan
+  
+  
+
+Ruby Loves:  
+  1) Blocks. The syntax makes them trivial and the stdlib uses them everywhere. You don't realize how much explicitly writing loops sucks until you stop having to do it. (And the syntax naturally extends itself to things like resource management, e.g. File.open).
+  
+  2) OO model. Everything is receiver.method_call. It's sooo consistent.
+
+  3) Meta-programming. Tacking new methods on to existing classes. Using attr_accessor and friends. Writing your own versions of them. See Rake and Rails for how easy this for making domain-specific languages.
+
+
+  lambda {|e| puts(e)}
+  l.collect {|e| ...}
+
+
+
+Web Analytics
+  * hit - request for a file from the web server
+  * page view - request for a file which is defined as a page in log analysis
+  * visit/session - series of requests determined as a users time at one point
+  * bounce rate - percentage of visitors who enter one page and exit the same without any other action
+  * click path - sequence of urls user follows on your site
+  * request - file request (get)
+  

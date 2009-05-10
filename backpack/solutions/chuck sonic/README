@@ -1,0 +1,29 @@
+Hard coded for project gutenberg texts (looks for *** START / *** END)
+Otherwise, should be self explanatory
+
+here is a sample run
+
+  ./markov.rb huck_finn.txt pride_and_p.txt 
+  Scanning file huck_finn.txt...
+  Scanning file pride_and_p.txt...
+
+  Here is your own 100 word story:
+
+  Odd, too. Say, boy, what's the sense of decency and virtue 
+  in a quieter way. Elizabeth felt herself to stay two 
+  months. I told you I ben a-drinkin'? Has I had 
+  been driven from her might assist his tenants, and relieve 
+  the poor. With respect to Jane--his unpardonable assurance in acknowledging, 
+  though he warn't quite midnight yet, so we can LET 
+  ON, to ourselves, that we wouldn't let me out. But 
+  if only HALF a man--like Buck Harkness, there--shouts 'Lynch him! 
+  lynch him!' you're afraid to come to be in the 
+  most generous of his head, and opened his mouth--what 
+
+Quick and dirty.
+Thanks to ArrayExtras, I was able to keep non-golfing code to < 100 lines.
+
+chuck.sonic@gmail.com
+4/10/06
+
+

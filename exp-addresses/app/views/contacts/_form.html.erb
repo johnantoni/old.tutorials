@@ -1,0 +1,29 @@
+      <legend><%= @f.error_messages %></legend>
+			<p class="clearfix">
+			  <%= @f.label :firstname%>
+        <%= @f.text_field :firstname, :size => 30 %>
+			</p>
+			<p class="clearfix">
+			  <%= @f.label :lastname%>
+        <%= @f.text_field :lastname, :size => 30 %>
+			</p>
+			<p class="clearfix">
+			  <%= @f.label :email%>
+        <%= @f.text_field :email, :size => 30 %>
+			</p>
+			<p class="clearfix">
+			  <%= @f.label :phone%>
+        <%= @f.text_field :phone, :size => 30 %>
+			</p>
+			<p class="clearfix">
+			  <%= @f.label :photo%>
+        <%= @f.file_field :photo %>
+			</p>
+  		<p class="clearfix">
+			  <%= @f.label :company%>
+			  <%= @f.select (:company_id, Company.find(:all).collect {|c| [ c.title, c.id ] })%>
+			<p class="buttons">
+				<input type="reset" value="Reset form" />
+				<%= @f.submit "Submit &rarr;" %>
+			</p>
+

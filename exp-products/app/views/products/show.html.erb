@@ -1,0 +1,30 @@
+<h1>Product for <%= link_to @client.name, @client %> &rarr; <%= link_to @brand.name, [@client, @brand] %></h1>
+
+<p>
+  <b>Name:</b>
+  <%=h @product.name %>
+</p>
+
+<p>
+  <b>Product code:</b>
+  <%=h @product.product_code %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @product.description %>
+</p>
+
+<p>
+  <b>Brand:</b>
+  <%=h @product.brand_id %>
+</p>
+
+<p>
+  <% form_for([@client, @brand, @product]) do |f| %>
+    <%= f.hidden_field :verified, :value => 1 %>
+    <%= f.submit "Verify" %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_client_brand_product_path(@client, @brand, @product) %> | <%= link_to 'Back', client_brand_products_path(@client, @brand) %>

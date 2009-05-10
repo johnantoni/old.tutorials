@@ -1,0 +1,11 @@
+
+<div class="section">
+  <h3>Create Contact</h3>
+  
+  <% form_for @contact, :html => { :multipart => true } do |@f| %>
+		<fieldset>
+      <%= render :partial => 'form', :locals => {:object => @f} %>
+		</fieldset>
+  <% end %>
+</div>
+

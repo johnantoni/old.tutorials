@@ -1,0 +1,61 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf410
+{\fonttbl\f0\fswiss\fcharset77 Arial-BoldMT;\f1\fswiss\fcharset77 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red110\green23\blue86;\red255\green254\blue223;\red31\green35\blue248;
+\red82\green125\blue95;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\ql\qnatural
+
+\f0\b\fs16\fsmilli8300 \cf2 \cb3 using\'ca
+\f1\b0 \cf0 System;\
+
+\f0\b \cf2 using\'ca
+\f1\b0 \cf0 System.Xml;\
+\
+
+\f0\b \cf2 public\'caclass\'ca
+\f1\b0 \cf0 GenerateXml\'ca\{\
+\pard\pardeftab720\ql\qnatural
+\cf1 \'ca\'ca\'ca\'ca
+\f0\b \cf2 private\'castatic\'cavoid\'ca
+\f1\b0 \cf0 Main()\'ca\{\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlDocument\'cadoc\'ca=\'ca
+\f0\b \cf2 new\'ca
+\f1\b0 \cf0 XmlDocument();\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlNode\'cadocNode\'ca=\'cadoc.CreateXmlDeclaration(\cf4 "1.0"\cf0 ,\'ca\cf4 "UTF-8"\cf0 ,\'ca
+\f0\b \cf2 null
+\f1\b0 \cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 doc.AppendChild(docNode);\
+\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlNode\'caproductsNode\'ca=\'cadoc.CreateElement(\cf4 "products"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 doc.AppendChild(productsNode);\
+\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlNode\'caproductNode\'ca=\'cadoc.CreateElement(\cf4 "product"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlAttribute\'caproductAttribute\'ca=\'cadoc.CreateAttribute(\cf4 "id"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 productAttribute.Value\'ca=\'ca\cf4 "01"\cf0 ;\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 productNode.Attributes.Append(productAttribute);\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 productsNode.AppendChild(productNode);\
+\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlNode\'canameNode\'ca=\'cadoc.CreateElement(\cf4 "Name"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 nameNode.AppendChild(doc.CreateTextNode(\cf4 "Java"\cf0 ));\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 productNode.AppendChild(nameNode);\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlNode\'capriceNode\'ca=\'cadoc.CreateElement(\cf4 "Price"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 priceNode.AppendChild(doc.CreateTextNode(\cf4 "Free"\cf0 ));\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 productNode.AppendChild(priceNode);\
+\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf5 //\'caCreate\'caand\'caadd\'caanother\'caproduct\'canode.\cf0 \
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 productNode\'ca=\'cadoc.CreateElement(\cf4 "product"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 productAttribute\'ca=\'cadoc.CreateAttribute(\cf4 "id"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 productAttribute.Value\'ca=\'ca\cf4 "02"\cf0 ;\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 productNode.Attributes.Append(productAttribute);\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 productsNode.AppendChild(productNode);\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 nameNode\'ca=\'cadoc.CreateElement(\cf4 "Name"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 nameNode.AppendChild(doc.CreateTextNode(\cf4 "C#"\cf0 ));\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 productNode.AppendChild(nameNode);\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 priceNode\'ca=\'cadoc.CreateElement(\cf4 "Price"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 priceNode.AppendChild(doc.CreateTextNode(\cf4 "Free"\cf0 ));\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 productNode.AppendChild(priceNode);\
+\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 doc.Save(Console.Out);\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \}\
+\}}

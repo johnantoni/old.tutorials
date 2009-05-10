@@ -1,0 +1,20 @@
+<div class="section">
+  <h3>Listing companies</h3>
+
+	<ul>
+<% for company in @companies %>
+		<li>
+		  <%= link_to company.title, company %>
+		   | 
+		  <%= link_to 'Edit', edit_company_path(company) %> 
+		   | 
+		  <%= link_to 'Destroy', company, :confirm => 'Are you sure?', :method => :delete %>
+		</li>
+<% end %>
+	</ul>
+
+  <%= button_to 'New company', new_company_path %>
+
+</div>
+
+

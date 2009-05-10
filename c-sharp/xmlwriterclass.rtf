@@ -1,0 +1,47 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf410
+{\fonttbl\f0\fswiss\fcharset77 ArialMT;\f1\fswiss\fcharset77 Arial-BoldMT;}
+{\colortbl;\red255\green255\blue255;\red255\green254\blue223;\red110\green23\blue86;\red31\green35\blue248;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\ql\qnatural
+
+\f0\fs16\fsmilli8300 \cf0 \cb2 \
+\pard\pardeftab720\ql\qnatural
+
+\f1\b \cf3 using\'ca
+\f0\b0 \cf0 System;\
+
+\f1\b \cf3 using\'ca
+\f0\b0 \cf0 System.IO;\
+
+\f1\b \cf3 using\'ca
+\f0\b0 \cf0 System.Xml;\
+\pard\pardeftab720\ql\qnatural
+\cf1 \'ca\'ca\'ca\cf0 \
+\pard\pardeftab720\ql\qnatural
+
+\f1\b \cf3 class\'ca
+\f0\b0 \cf0 MainClass\
+\{\
+\pard\pardeftab720\ql\qnatural
+\cf1 \'ca\'ca\'ca\'ca
+\f1\b \cf3 static\'capublic\'cavoid\'ca
+\f0\b0 \cf0 Main()\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \{\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlTextWriter\'caXmlWriter\'ca=\'ca
+\f1\b \cf3 new\'ca
+\f0\b0 \cf0 XmlTextWriter(Console.Out);\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 \
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlWriter.WriteStartDocument();\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlWriter.WriteComment(\cf4 "This\'cais\'cathe\'cacomments."\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlWriter.WriteStartElement(\cf4 "BOOK"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlWriter.WriteElementString(\cf4 "TITLE"\cf0 ,\'ca\cf4 "this\'cais\'cathe\'catitle."\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlWriter.WriteElementString(\cf4 "AUTHOR"\cf0 ,\'ca\cf4 "I\'caam\'cathe\'caauthor."\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlWriter.WriteElementString(\cf4 "PUBLISHER"\cf0 ,\'ca\cf4 "who\'cais\'cathe\'capublisher"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlWriter.WriteEndElement();\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlWriter.WriteEndDocument();\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \}\
+\}\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 \
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca}

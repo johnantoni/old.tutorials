@@ -1,0 +1,19 @@
+<h1>Editing recipe</h1>
+
+<% form_for(@recipe) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= select('recipe', 'category_id', Category.find(:all).map { |item| [item.title, item.id] })  %><br />
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @recipe %> |
+<%= link_to 'Back', recipes_path %>

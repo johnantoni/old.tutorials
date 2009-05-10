@@ -1,0 +1,22 @@
+<p>
+<%= @video.title %>
+</p>
+<p>
+<%= @video.body %>
+</p>
+
+<p>
+<span>
+  <%= image_tag @video.avatar.url %>
+</span>
+<span>
+  <%= image_tag @video.avatar.url(:medium) %>
+</span>
+<span>
+  <%= image_tag @video.avatar.url(:thumb) %>
+</span>
+</p>
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>
+

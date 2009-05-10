@@ -1,0 +1,7 @@
+%h1 Register
+
+= error_messages_for :user
+- form_for :user, @user, :url => 'users/new', :builder => CustomForm do |f|
+  = f.text_field :email
+  = f.password_field :password
+  = f.submit 'Register'

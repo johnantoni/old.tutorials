@@ -1,0 +1,8 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+   title: 'one title'
+   body: 'one body'
+#
+# two:
+#   column: value

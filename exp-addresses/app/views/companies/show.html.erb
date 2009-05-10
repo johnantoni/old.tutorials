@@ -1,0 +1,19 @@
+<div class="section">
+  <h3>Company</h3>
+  
+	<ul>
+	  <li><%=@company.title%></li>
+	  <li><%=@company.address%></li>
+	</ul>
+
+  <h3>Contacts</h3>
+	<ul>
+  <% @company.contacts.each do |contact| %>
+	  <li><%=contact.firstname%></li>
+	<% end %>
+	</ul>
+
+</div>
+
+<%= link_to 'Back', companies_path %>
+

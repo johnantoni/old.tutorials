@@ -1,0 +1,27 @@
+Questions:
+
+* What is your favorite feature in Edge Rails/the forthcoming 2.1 release?
+* What are the biggest cons of Ruby on Rails?
+* If you could improve one part of Rails, what would it be?
+* What Ruby/Rails projects/libraries have they contributed to?
+* If Rails didn't exist, what tools do you think you'd be using right now, and why?
+* What do you think about testing as part of development?
+* How do you cope with differences between browsers?
+- Can you name one advantage of test-first development over test-last development?
+- If you've ever done any pair programming, can you think of one thing about it you enjoyed & one thing you didn't.
+- Is any code you have written currently in a live production system?
+- Have you ever experienced problems integrating parts of a system written by different people? How did you tackle the problems?
+- If a project has 70% test coverage, what conclusion is it safe to draw?
+- How old were you when you first wrote a computer program?
+- Have you ever been given ambiguous requirements? How did you resolve the ambiguity?
+- What is your opinion about version control branching?
+- What is the best book about software development that you've read?
+- Have you ever used the Singleton pattern? Is there anything you do or don't like about it?
+- What is the one thing you'd like us to know about you that isn't in your CV?
+- What is your least favourite of the programming languages you've used and why?
+- What interests you about working with Ruby on Rails?
+- How many developers would be in your ideal development team?
+- If you find a bug in a colleague's code, what do you normally do about it?
+- Is there one personality trait that you think makes a good software developer?
+- What is most important to you in choosing a job - the technologies being used, the remuneration package, the people, the problem domain, or something else?
+- If you weren't a software developer, what would you be?

@@ -1,0 +1,16 @@
+<%= render :partial => "post", :object => @post %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @post %> |
+<%= link_to 'Back', :action => 'list' %>
+
+<h2>Comments</h2>
+
+<% for comment in @post.comments %>
+    <%= comment.body %>
+    <hr />
+<% end %>
+
+<%= form_tag :action => "comment", :id => @post %>
+    <%= text_area "comment", "body" %><br />
+    <%= submit_tag "Comment!" %>
+</form>

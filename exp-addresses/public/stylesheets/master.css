@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: rgb(77,77,77);
+  font-size: 11px; 
+  background:silver;
+  padding-top:20px;
+}
+
+p {
+  margin-bottom:1.5em;
+}
+
+
+a {
+  color: rgb(60,114,168);
+  text-decoration: none; }
+
+a img {
+  border: none; }
+
+h1 {
+  font-size: 16px; }
+
+h2 {
+  font-size: 16px;
+  margin-bottom:1em;
+  border-bottom: dotted silver 3px;
+}
+
+h3 {
+  font-size: 16px;margin-bottom: 1em; }
+
+h4 {
+  font-size: 12px; }
+
+h5 {
+  font-size: 11px; }
+
+ul, ol {
+  margin-left: 1.5em; }
+
+li {
+  margin-bottom: 5px; }
+
+.section {
+  margin-bottom:2em;
+}
+#wrapper  {
+  width:960px;
+  margin:0 auto;
+  border:solid gray 10px;
+  background:white;
+}
+
+#header {
+  height:80px;
+}
+
+h1 {
+  float:left;
+  padding:20px 0 0 20px;
+  font-size:3em;
+}
+#search_box {float:right;margin:30px 20px 0 0;}
+
+#content  {
+  padding:20px;
+}
+
+/* forms */
+
+legend {
+  font-size:1.5em;
+  font-weight:bold;
+}
+fieldset {
+  border:solid gray 1px;
+  background:#eee;
+  padding:2em;
+}
+
+fieldset .clearfix label,
+fieldset .clearfix input,
+fieldset .clearfix select {
+  float:left;
+}
+
+fieldset .clearfix label {
+  width:10em;
+  text-align:right;
+  margin-right:0.5em;
+  line-height:1.8;
+}
+
+.buttons {
+  text-align:right;
+}
+/* hacks */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+

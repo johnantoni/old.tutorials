@@ -1,0 +1,10 @@
+<h1>New product for <%= link_to @client.name, @client %> &rarr; <%= link_to @brand.name, [@client, @brand] %></h1>
+
+<% form_for([@client, @brand, @product]) do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f}%>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', client_brand_products_path(@client, @brand) %>

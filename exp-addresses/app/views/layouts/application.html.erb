@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<%= stylesheet_link_tag 'master' %>
+	<title>Phonebook app | <%= document_title %></title>
+	
+</head>
+
+<body>
+
+	<div id="wrapper">
+		<div id="header">
+			<h1>Super Phonebook app</h1>
+			<!-- search -->
+			<% form_tag '/contacts/search', :id => 'search_box' do %>
+				<label>Search</label>
+				<%= text_field_tag :q %>
+				<%= submit_tag 'find &rarr;' %>
+			<% end %>
+			<!-- /search -->
+		</div>
+		<div id="content">
+      <h2><%= link_to 'Companies', companies_url %> | <%= link_to 'Contacts', contacts_url %></h2>
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>

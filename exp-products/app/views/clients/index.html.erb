@@ -1,0 +1,26 @@
+<h1>Listing clients</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Phone number</th>
+    <th>Email address</th>
+  </tr>
+
+<% for client in @clients %>
+  <tr class="<%=verified_style(client)%>">
+    <td><%=h client.name %></td>
+    <td><%=h client.address %></td>
+    <td><%=h client.phone_number %></td>
+    <td><%=h client.email_address %></td>
+    <td><%= link_to 'Show', client %></td>
+    <td><%= link_to 'Edit', edit_client_path(client) %></td>
+    <td><%= link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New client', new_client_path %>

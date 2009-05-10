@@ -1,0 +1,27 @@
+  [4;36;1mSQL (0.002035)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000332)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000316)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000270)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000275)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000557)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000362)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000328)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000264)[0m   [0mBEGIN[0m
+  [4;36;1mPost Columns (0.009749)[0m   [0;1mSHOW FIELDS FROM posts[0m
+  [4;35;1mPost Load (0.001139)[0m   [0mSELECT * FROM posts WHERE (posts.`id` = 1) [0m
+  [4;36;1mComment Columns (0.006136)[0m   [0;1mSHOW FIELDS FROM comments[0m
+  [4;35;1mSQL (0.003612)[0m   [0mINSERT INTO comments (`body`, `post_id`) VALUES('my test comment', 1)[0m
+  [4;36;1mPost Load (0.001663)[0m   [0;1mSELECT * FROM posts WHERE (posts.`id` = 1) [0m
+  [4;35;1mSQL (0.001153)[0m   [0mSELECT count(*) AS count_all FROM comments WHERE (comments.post_id = 1) [0m
+  [4;36;1mSQL (0.002443)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000679)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000340)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000283)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000266)[0m   [0mBEGIN[0m
+  [4;36;1mPost Columns (0.003806)[0m   [0;1mSHOW FIELDS FROM posts[0m
+  [4;35;1mPost Load (0.003130)[0m   [0mSELECT * FROM posts WHERE (posts.`id` = 1) [0m
+  [4;36;1mComment Columns (0.003586)[0m   [0;1mSHOW FIELDS FROM comments[0m
+  [4;35;1mSQL (0.003008)[0m   [0mINSERT INTO comments (`body`, `post_id`) VALUES('my test comment', 1)[0m
+  [4;36;1mPost Load (0.001007)[0m   [0;1mSELECT * FROM posts WHERE (posts.`id` = 1) [0m
+  [4;35;1mSQL (0.002404)[0m   [0mSELECT count(*) AS count_all FROM comments WHERE (comments.post_id = 1) [0m
+  [4;36;1mSQL (0.001201)[0m   [0;1mROLLBACK[0m

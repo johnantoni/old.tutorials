@@ -1,0 +1,22 @@
+<h1>Listing brands for <%= link_to @client.name, @client %></h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+
+<% for brand in @brands %>
+  <tr class="<%=verified_style(brand)%>">
+    <td><%=h brand.name %></td>
+    <td><%=h brand.description %></td>
+    <td><%= link_to 'Show', [@client, brand] %></td>
+    <td><%= link_to 'Edit', edit_client_brand_path(@client, brand) %></td>
+    <td><%= link_to 'Destroy', [@client, brand], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New brand', new_client_brand_path(@client) %>

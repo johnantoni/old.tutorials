@@ -1,0 +1,69 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf410
+{\fonttbl\f0\fswiss\fcharset77 ArialMT;\f1\fswiss\fcharset77 Arial-BoldMT;}
+{\colortbl;\red255\green255\blue255;\red255\green254\blue223;\red110\green23\blue86;\red31\green35\blue248;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\ql\qnatural
+
+\f0\fs16\fsmilli8300 \cf0 \cb2 \
+\pard\pardeftab720\ql\qnatural
+
+\f1\b \cf3 using\'ca
+\f0\b0 \cf0 System;\
+
+\f1\b \cf3 using\'ca
+\f0\b0 \cf0 System.Xml;\
+\
+\pard\pardeftab720\ql\qnatural
+\cf1 \'ca\'ca
+\f1\b \cf3 class\'ca
+\f0\b0 \cf0 XMLDemo\{\
+\cf1 \'ca\'ca\'ca\'ca\cf0 [STAThread]\
+\cf1 \'ca\'ca\'ca\'ca
+\f1\b \cf3 static\'cavoid\'ca
+\f0\b0 \cf0 Main(string[]\'caargs)\'ca\{\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlDocument\'caxmlDom\'ca=\'ca
+\f1\b \cf3 new\'ca
+\f0\b0 \cf0 XmlDocument();\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlDom.AppendChild(xmlDom.CreateElement(\cf4 ""\cf0 ,\'ca\cf4 "books"\cf0 ,\'ca\cf4 ""\cf0 ));\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlElement\'caxmlRoot\'ca=\'caxmlDom.DocumentElement;\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlElement\'caxmlBook;\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlElement\'caxmlTitle,\'caxmlAuthor,\'caxmlPrice;\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlText\'caxmlText;\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlBook=\'caxmlDom.CreateElement(\cf4 ""\cf0 ,\'ca\cf4 "A"\cf0 ,\'ca\cf4 ""\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlBook.SetAttribute(\cf4 "property"\cf0 ,\'ca\cf4 ""\cf0 ,\'ca\cf4 "a"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlTitle\'ca=\'caxmlDom.CreateElement(\cf4 ""\cf0 ,\'ca\cf4 "B"\cf0 ,\'ca\cf4 ""\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlText\'ca=\'caxmlDom.CreateTextNode(\cf4 "text"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlTitle.AppendChild(xmlText);\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlBook.AppendChild(xmlTitle);\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 \
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlRoot.AppendChild(xmlBook);\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlAuthor\'ca=\'caxmlDom.CreateElement(\cf4 ""\cf0 ,\'ca\cf4 "C"\cf0 ,\'ca\cf4 ""\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlText\'ca=\'caxmlDom.CreateTextNode(\cf4 "textg"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlAuthor.AppendChild(xmlText);\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlBook.AppendChild(xmlAuthor);\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 \
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlPrice\'ca=\'caxmlDom.CreateElement(\cf4 ""\cf0 ,\'ca\cf4 "D"\cf0 ,\'ca\cf4 ""\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlText\'ca=\'caxmlDom.CreateTextNode(\cf4 "99999"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlPrice.AppendChild(xmlText);\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlBook.AppendChild(xmlPrice);\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlRoot.AppendChild(xmlBook);\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 Console.WriteLine(xmlDom.InnerXml);\
+\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlDom.Save(\cf4 "books.xml"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 \
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlDocument\'caxmlDom2\'ca=\'ca
+\f1\b \cf3 new\'ca
+\f0\b0 \cf0 XmlDocument();\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 xmlDom2.Load(\cf4 "books.xml"\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 Console.WriteLine(xmlDom2.InnerXml);\
+\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \}\
+\cf1 \'ca\'ca\cf0 \}\
+}

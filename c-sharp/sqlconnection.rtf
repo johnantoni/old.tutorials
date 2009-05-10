@@ -1,0 +1,65 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf410
+{\fonttbl\f0\fswiss\fcharset77 ArialMT;\f1\fswiss\fcharset77 Arial-BoldMT;}
+{\colortbl;\red255\green255\blue255;\red255\green254\blue223;\red110\green23\blue86;\red31\green35\blue248;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\ql\qnatural
+
+\f0\fs16\fsmilli8300 \cf0 \cb2 \
+\pard\pardeftab720\ql\qnatural
+
+\f1\b \cf3 using\'ca
+\f0\b0 \cf0 System;\
+
+\f1\b \cf3 using\'ca
+\f0\b0 \cf0 System.Data;\
+
+\f1\b \cf3 using\'ca
+\f0\b0 \cf0 ByteFX.Data.MySqlClient;\
+\
+\pard\pardeftab720\ql\qnatural
+\cf1 \'ca\'ca\'ca
+\f1\b \cf3 class\'ca
+\f0\b0 \cf0 MySqlConnect\
+\cf1 \'ca\'ca\'ca\cf0 \{\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca
+\f1\b \cf3 static\'cavoid\'ca
+\f0\b0 \cf0 Main()\'ca\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 \{\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 string\'caconnString\'ca=\'ca@\cf4 "Data\'caSource=server;Database=mydb;User\'caID=username;Password=pwd;Command\'caLogging=false"\cf0 ;\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 MySqlConnection\'caconn\'ca=\'ca
+\f1\b \cf3 new\'ca
+\f0\b0 \cf0 MySqlConnection(connString);\
+\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca
+\f1\b \cf3 try\'ca
+\f0\b0 \cf0 \
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 \{\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 conn.Open();\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 Console.WriteLine(\cf4 "Connection\'caopened."\cf0 );\
+\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 Console.WriteLine(\cf4 "Connection\'caProperties:"\cf0 );\'ca\'ca\'ca\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 Console.WriteLine(\cf4 "\\tConnection\'caString:\'ca\{0\}"\cf0 ,conn.ConnectionString);\'ca\'ca\'ca\'ca\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 Console.WriteLine(\cf4 "\\tDatabase:\'ca\{0\}"\cf0 ,conn.Database);\'ca\'ca\'ca\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 Console.WriteLine(\cf4 "\\tServerVersion:\'ca\{0\}"\cf0 ,\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 conn.ServerVersion);\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 Console.WriteLine(\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf4 "\\tState:\'ca\{0\}"\cf0 ,\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 conn.State);\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 \}\'ca\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca
+\f1\b \cf3 catch\'ca
+\f0\b0 \cf0 (MySqlException\'cae)\'ca\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 \{\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 Console.WriteLine(\cf4 "Error:\'ca"\'ca\cf0 +\'cae);\'ca\'ca\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 \}\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca
+\f1\b \cf3 finally\'ca
+\f0\b0 \cf0 \
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 \{\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 conn.Close();\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 Console.WriteLine(\cf4 "Connection\'caclosed."\cf0 );\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 \}\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 \}\
+\cf1 \'ca\'ca\'ca\cf0 \}}

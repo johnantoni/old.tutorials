@@ -1,0 +1,22 @@
+<h1>Listing categories</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+
+<% @categories.each do |category| %>
+  <tr>
+    <td><%=h category.title %></td>
+    <td><%= link_to 'Show', category %></td>
+    <td><%= link_to 'Edit', edit_category_path(category) %></td>
+    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'New recipe', new_category_recipe_path(category) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New category', new_category_path %>
+<%= link_to 'New recipe', new_recipe_path %>

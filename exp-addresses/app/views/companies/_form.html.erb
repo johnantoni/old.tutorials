@@ -1,0 +1,14 @@
+      <legend><%= @f.error_messages %></legend>
+			<p class="clearfix">
+			  <%= @f.label :title%>
+        <%= @f.text_field :title, :size => 30 %>
+			</p>
+			<p class="clearfix">
+			  <%= @f.label :address%>
+        <%= @f.text_area :address, :rows => 7, :cols => 35 %>
+			</p>
+			<p class="buttons">
+				<input type="reset" value="Reset form" />
+				<%= @f.submit "Submit &rarr;" %>
+			</p>
+

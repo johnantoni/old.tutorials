@@ -1,0 +1,9 @@
+<div class="section">
+  <h3>Editing company</h3>
+  <% form_for @company do |@f| %>
+		<fieldset>
+      <%= render :partial => 'form', :locals => {:object => @f} %>
+		</fieldset>
+  <% end %>
+</div>
+

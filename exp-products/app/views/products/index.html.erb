@@ -1,0 +1,24 @@
+<h1>Listing products for <%= link_to @client.name, @client %> &rarr; <%= link_to @brand.name, [@client, @brand] %></h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Product code</th>
+    <th>Description</th>
+  </tr>
+
+<% for product in @products %>
+  <tr class="<%=verified_style(product)%>">
+    <td><%=h product.name %></td>
+    <td><%=h product.product_code %></td>
+    <td><%=h product.description %></td>
+    <td><%= link_to 'Show', [@client, @brand, product] %></td>
+    <td><%= link_to 'Edit', edit_client_brand_product_path(@client, @brand, product) %></td>
+    <td><%= link_to 'Destroy', [@client, @brand, product], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New product', new_client_brand_product_path(@client, @brand) %>

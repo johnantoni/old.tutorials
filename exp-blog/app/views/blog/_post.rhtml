@@ -1,0 +1,8 @@
+<div>
+    <h2><%= link_to post.title, :action => 'show', :id => post %></h2>
+    <p><%= textilize(post.body) %></p>
+    <p><small>
+    <%= post.created_at.to_s(:long) %>
+    (<%= link_to 'Edit', :action => 'edit', :id => post %>)
+    </small></p>
+</div>

@@ -1,0 +1,173 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf410
+{\fonttbl\f0\fswiss\fcharset77 Arial-BoldMT;\f1\fswiss\fcharset77 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red110\green23\blue86;\red255\green254\blue223;\red31\green35\blue248;
+\red132\green23\blue24;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\ql\qnatural
+
+\f0\b\fs16\fsmilli8300 \cf2 \cb3 using\'ca
+\f1\b0 \cf0 System;\
+
+\f0\b \cf2 using\'ca
+\f1\b0 \cf0 System.IO;\
+
+\f0\b \cf2 using\'ca
+\f1\b0 \cf0 System.Runtime.Serialization;\
+
+\f0\b \cf2 using\'ca
+\f1\b0 \cf0 System.Runtime.Serialization.Formatters.Soap;\
+\
+
+\f0\b \cf2 public\'caclass\'ca
+\f1\b0 \cf0 Serializer\'ca\{\
+\
+\pard\pardeftab720\ql\qnatural
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'castatic\'cavoid\'ca
+\f1\b0 \cf0 Main(string\'ca[]\'caargs)\'ca\{\
+\cf1 \'ca\'ca\'ca\'ca\cf0 StudentList\'capersonnel\'ca=\'caCreateStudentList();\
+\cf1 \'ca\'ca\'ca\'ca\cf0 IFormatter\'casoapFormatter\'ca=\'ca
+\f0\b \cf2 new\'ca
+\f1\b0 \cf0 SoapFormatter();\
+\cf1 \'ca\'ca\'ca\'ca
+\f0\b \cf2 using\'ca
+\f1\b0 \cf0 (FileStream\'castream\'ca=\'caFile.OpenWrite(\cf4 "StudentListSoap.xml"\cf0 ))\'ca\{\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 soapFormatter.Serialize(stream,personnel);\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \}\
+\cf1 \'ca\'ca\cf0 \}\
+\cf1 \'ca\'ca\cf0 \
+\cf1 \'ca\'ca
+\f0\b \cf2 private\'castatic\'ca
+\f1\b0 \cf0 StudentList\'caCreateStudentList()\'ca\{\
+\cf1 \'ca\'ca\'ca\'ca\cf0 StudentList\'capersonnel\'ca=\'ca
+\f0\b \cf2 new\'ca
+\f1\b0 \cf0 StudentList();\
+\cf1 \'ca\'ca\'ca\'ca\cf0 personnel.Students\'ca=\'ca
+\f0\b \cf2 new\'ca
+\f1\b0 \cf0 Employee\'ca[]\'ca\{
+\f0\b \cf2 new\'ca
+\f1\b0 \cf0 Employee()\};\
+\cf1 \'ca\'ca\'ca\'ca\cf0 personnel.Students[\cf5 \cb3 0\cf0 \cb3 ].FirstName\'ca=\'ca\cf4 "Apple"\cf0 ;\
+\cf1 \'ca\'ca\'ca\'ca\cf0 personnel.Students[\cf5 \cb3 0\cf0 \cb3 ].MiddleInitial\'ca=\'ca\cf4 "M"\cf0 ;\
+\cf1 \'ca\'ca\'ca\'ca\cf0 personnel.Students[\cf5 \cb3 0\cf0 \cb3 ].LastName\'ca=\'ca\cf4 "Bear"\cf0 ;\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \
+\cf1 \'ca\'ca\'ca\'ca\cf0 personnel.Students[\cf5 \cb3 0\cf0 \cb3 ].Addresses\'ca=\'ca
+\f0\b \cf2 new\'ca
+\f1\b0 \cf0 Address\'ca[]\'ca\{
+\f0\b \cf2 new\'ca
+\f1\b0 \cf0 Address()\};\
+\cf1 \'ca\'ca\'ca\'ca\cf0 personnel.Students[\cf5 \cb3 0\cf0 \cb3 ].Addresses[\cf5 \cb3 0\cf0 \cb3 ].AddressType\'ca=\'caAddressType.Home;\
+\cf1 \'ca\'ca\'ca\'ca\cf0 personnel.Students[\cf5 \cb3 0\cf0 \cb3 ].Addresses[\cf5 \cb3 0\cf0 \cb3 ].Street\'ca=\'ca
+\f0\b \cf2 new\'ca
+\f1\b0 \cf0 string\'ca[]\'ca\{\cf4 "Culloden"\cf0 \};\
+\cf1 \'ca\'ca\'ca\'ca\cf0 personnel.Students[\cf5 \cb3 0\cf0 \cb3 ].Addresses[\cf5 \cb3 0\cf0 \cb3 ].City\'ca=\'ca\cf4 "Vancouver"\cf0 ;\
+\cf1 \'ca\'ca\'ca\'ca\cf0 personnel.Students[\cf5 \cb3 0\cf0 \cb3 ].Addresses[\cf5 \cb3 0\cf0 \cb3 ].State\'ca=\'caState.BC;\
+\cf1 \'ca\'ca\'ca\'ca\cf0 personnel.Students[\cf5 \cb3 0\cf0 \cb3 ].Addresses[\cf5 \cb3 0\cf0 \cb3 ].Zip\'ca=\'ca\cf4 "V5V\'ca4X7"\cf0 ;\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \
+\cf1 \'ca\'ca\'ca\'ca\cf0 personnel.Students[\cf5 \cb3 0\cf0 \cb3 ].StartDate\'ca=\'ca
+\f0\b \cf2 new\'ca
+\f1\b0 \cf0 DateTime(\cf5 \cb3 2006\cf0 \cb3 ,\cf5 \cb3 10\cf0 \cb3 ,\cf5 \cb3 12\cf0 \cb3 );\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \
+\cf1 \'ca\'ca\'ca\'ca
+\f0\b \cf2 return\'ca
+\f1\b0 \cf0 personnel;\
+\cf1 \'ca\'ca\cf0 \}\
+\}\
+\
+[Serializable]\
+\pard\pardeftab720\ql\qnatural
+
+\f0\b \cf2 public\'caenum\'ca
+\f1\b0 \cf0 AddressType\'ca\{\
+\pard\pardeftab720\ql\qnatural
+\cf1 \'ca\'ca\cf0 Home,\
+\cf1 \'ca\'ca\cf0 Office\
+\}\
+\
+[Serializable]\
+\pard\pardeftab720\ql\qnatural
+
+\f0\b \cf2 public\'caenum\'ca
+\f1\b0 \cf0 State\'ca\{\
+\pard\pardeftab720\ql\qnatural
+\cf1 \'ca\'ca\cf0 BC,\'caON\
+\}\
+\
+[Serializable]\
+\pard\pardeftab720\ql\qnatural
+
+\f0\b \cf2 public\'caclass\'ca
+\f1\b0 \cf0 Address\'ca\{\
+\pard\pardeftab720\ql\qnatural
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 AddressType\'caAddressType;\
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 string[]\'caStreet;\
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 string\'caCity;\
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 State\'caState;\
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 string\'caZip;\
+\}\
+\
+[Serializable]\
+\pard\pardeftab720\ql\qnatural
+
+\f0\b \cf2 public\'caclass\'ca
+\f1\b0 \cf0 TelephoneNumber\'ca\{\
+\pard\pardeftab720\ql\qnatural
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 string\'caAreaCode;\
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 string\'caExchange;\
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 string\'caNumber;\
+\}\
+\
+[Serializable]\
+\pard\pardeftab720\ql\qnatural
+
+\f0\b \cf2 public\'caclass\'ca
+\f1\b0 \cf0 Employee\'ca\{\
+\pard\pardeftab720\ql\qnatural
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 string\'caFirstName;\
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 string\'caMiddleInitial;\
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 string\'caLastName;\
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 Address\'ca[]\'caAddresses;\
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 TelephoneNumber\'ca[]\'caTelephoneNumbers;\
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 DateTime\'caStartDate;\
+\}\
+\
+[Serializable]\
+\pard\pardeftab720\ql\qnatural
+
+\f0\b \cf2 public\'caclass\'ca
+\f1\b0 \cf0 StudentList\'ca\{\
+\pard\pardeftab720\ql\qnatural
+\cf1 \'ca\'ca
+\f0\b \cf2 public\'ca
+\f1\b0 \cf0 Employee\'ca[]\'caStudents;\
+\}\
+}

@@ -1,0 +1,10 @@
+<h1>Editing brand for <%= link_to @client.name, @client %></h1>
+
+<% form_for([@client, @brand]) do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f}%>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', [@client, @brand] %> | <%= link_to 'Back', client_brands_path(@client) %>

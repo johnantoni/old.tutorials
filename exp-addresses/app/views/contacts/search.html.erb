@@ -1,0 +1,17 @@
+
+<div class="section">
+  <h3>Search results</h3>
+
+	<ul>
+<% for contact in @contacts %>
+		<li>
+		  <%= link_to contact.firstname, contact %> 
+		  <%= link_to 'Edit', edit_contact_path(contact) %> 
+		  <%= link_to 'Destroy', contact, :confirm => 'Are you sure?', :method => :delete %>
+		</li>
+<% end %>
+	</ul>
+
+</div>
+
+

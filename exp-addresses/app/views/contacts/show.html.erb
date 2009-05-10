@@ -1,0 +1,15 @@
+<div class="section">
+  <h3>Contact</h3>
+
+	<ul>
+	  <li>Firstname : <%=@contact.firstname%></li>
+	  <li>Lastname : <%=@contact.lastname%></li>
+	  <li>Email : <%=@contact.email%></li>
+	  <li>Phone : <%=@contact.phone%></li>
+	  <%= image_tag @contact.photo.url(:small) %>
+	  <li>Company : <%=@contact.company.title%></li>
+	</ul>
+</div>
+
+<%= link_to 'Back', contacts_path %>
+

@@ -1,0 +1,13 @@
+<%= error_messages_for 'post' %>
+
+<!--[form:post]-->
+<p><label for="post_title">Title</label><br/>
+<%= text_field 'post', 'title'  %></p>
+
+<p><label for="post_created_at">Created at</label><br/>
+<%= datetime_select 'post', 'created_at'  %></p>
+
+<p><label for="post_body">Body</label><br/>
+<%= text_area 'post', 'body'  %></p>
+<!--[eoform:post]-->
+

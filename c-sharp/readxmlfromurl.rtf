@@ -1,0 +1,66 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf410
+{\fonttbl\f0\fswiss\fcharset77 ArialMT;\f1\fswiss\fcharset77 Arial-BoldMT;}
+{\colortbl;\red255\green255\blue255;\red82\green125\blue95;\red255\green254\blue223;\red110\green23\blue86;
+\red31\green35\blue248;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\ql\qnatural
+
+\f0\fs16\fsmilli8300 \cf2 \cb3 /*\cf0 \
+\pard\pardeftab720\ql\qnatural
+\cf1 \'ca\cf2 *\'caC#\'caProgrammers\'caPocket\'caConsultant\cf0 \
+\cf1 \'ca\cf2 *\'caAuthor:\'caGregory\'caS.\'caMacBeth\cf0 \
+\cf1 \'ca\cf2 *\'caEmail:\'cagmacbeth@comporium.net\cf0 \
+\cf1 \'ca\cf2 *\'caCreate\'caDate:\'caJune\'ca27,\'ca2003\cf0 \
+\cf1 \'ca\cf2 *\'caLast\'caModified\'caDate:\cf0 \
+\cf1 \'ca\cf2 *\'caVersion:\'ca1\cf0 \
+\cf1 \'ca\cf2 */\cf0 \
+\pard\pardeftab720\ql\qnatural
+
+\f1\b \cf4 using\'ca
+\f0\b0 \cf0 System;\
+
+\f1\b \cf4 using\'ca
+\f0\b0 \cf0 System.IO;\
+
+\f1\b \cf4 using\'ca
+\f0\b0 \cf0 System.Xml;\
+\
+\
+namespace\'caClient.Chapter_22___XML\
+\{\
+\pard\pardeftab720\ql\qnatural
+\cf1 \'ca\'ca
+\f1\b \cf4 public\'caclass\'ca
+\f0\b0 \cf0 ReadXMLFromURL\
+\cf1 \'ca\'ca\cf0 \{\'ca\'ca\'ca\'ca\
+\cf1 \'ca\'ca\'ca\'ca
+\f1\b \cf4 static\'cavoid\'ca
+\f0\b0 \cf0 Main(string[]\'caargs)\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \{\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 string\'calocalURL\'ca=\'ca\cf5 "http:\\\\somehost\\\\Test.xml"\cf0 ;\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 XmlTextReader\'camyXmlURLreader\'ca=\'ca
+\f1\b \cf4 null
+\f0\b0 \cf0 ;\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 myXmlURLreader\'ca=\'ca
+\f1\b \cf4 new\'ca
+\f0\b0 \cf0 XmlTextReader\'ca(localURL);\
+\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca
+\f1\b \cf4 while\'ca
+\f0\b0 \cf0 (myXmlURLreader.Read())\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 \{\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf2 //TODO\'ca-\'ca\cf0 \
+\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\cf0 \}\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca
+\f1\b \cf4 if\'ca
+\f0\b0 \cf0 (myXmlURLreader\'ca!=\'ca
+\f1\b \cf4 null
+\f0\b0 \cf0 )\
+\cf1 \'ca\'ca\'ca\'ca\'ca\'ca\'ca\'ca\cf0 myXmlURLreader.Close();\
+\
+\cf1 \'ca\'ca\'ca\'ca\cf0 \}\
+\cf1 \'ca\'ca\cf0 \}\
+\}\
+}

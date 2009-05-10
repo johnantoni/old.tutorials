@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @client.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @client.address %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%=h @client.phone_number %>
+</p>
+
+<p>
+  <b>Email address:</b>
+  <%=h @client.email_address %>
+</p>
+
+<p>
+  <% form_for(@client) do |f| %>
+    <%= f.hidden_field :verified, :value => 1 %>
+    <%= f.submit "Verify" %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_client_path(@client) %> | <%= link_to 'Show Brands', client_brands_path(@client) %> | <%= link_to 'Back', clients_path %>

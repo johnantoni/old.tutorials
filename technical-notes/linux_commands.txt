@@ -1,0 +1,54 @@
+cat /etc/issue   ...return o/s installed
+
+who      ..users logged in and what they're doing
+users    ..users logged in
+last     ..users who have logged in / out + when last rebooted
+lastlog  ..does the same but lists as log
+whoami   ..who you're logged in as
+sudo passwd [user]  ..change users password
+
+nano [file]  ..nice text editor
+gedit .      ..open current dir in gnome editor (note the . )
+
+cat /proc/cpuinfo  ..show cpu info
+cat /proc/cpuinfo | grep processor | wc -l  .   ...cpu info + processors
+dmidecode | less  ...BIOS info
+ethtool -i eth0  ...ethernet adapter hardware info
+
+free -tm           ..shows memory free in mb
+top                ..memory usage
+uname -options     ..show o/s info
+dmesg              ..debug info
+
+chown [user] file/folder  ..change file/folder ownership
+chmod -R a+rw public   ...change permissions recursively
+which [program]           ..find location of program
+
+sudo aptitude update
+sudo aptitude safe-upgrade
+sudo aptitude clean
+
+sudo aptitude install [package]
+sudo aptitude remove [package]
+
+crontab -e
+
+..start task on reboot without email reporting
+@reboot (sh /startup.sh) > /dev/null 2>&1
+
+poweroff   ..shutdown machine
+shutdown -r now  ..reboot machine
+
+rm -rf  [dir]  ...remove directory recursively
+
+ls -a  ..show files / dirs inc. hidden files
+ls -l  ..show file / dir permissions & sizes
+
+ssh-keygen           ..generate rsa key
+ssh-keygen -d        ..generate dsa key
+ssh-keygen -f mykey  ..generate named rsa key
+
+chmod -R a+rw public ..make [public] public recursively
+
+lspci | grep VGA  ..show video hardware
+
